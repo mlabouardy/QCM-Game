@@ -1,11 +1,22 @@
 var mongoose=require('mongoose');
-var status=require('./status.js');
-var question=require('./question.js');
+
+var StatusSchema = new mongoose.Schema({
+   name:String
+});
+
+var QuestionSchema = new mongoose.Schema({
+  question:String,
+  response:String,
+  choice1:String,
+  choice2:String,
+  choice3:String,
+  choice4:String
+});
 
 var QCMSchema = new mongoose.Schema({
    name:String,
-   questions:[question],
-   status:status
+   status:StatusSchema,
+   questions:[QuestionSchema]
 });
 
 module.exports = mongoose.model('QCM', QCMSchema);
