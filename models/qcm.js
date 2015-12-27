@@ -4,13 +4,14 @@ var StatusSchema = new mongoose.Schema({
    name:String
 });
 
+var ChoiceSchema = new mongoose.Schema({
+	name:String
+});
+
 var QuestionSchema = new mongoose.Schema({
   question:String,
-  response:String,
-  choice1:String,
-  choice2:String,
-  choice3:String,
-  choice4:String
+  response:ChoiceSchema,
+  choices:[ChoiceSchema]
 });
 
 var QCMSchema = new mongoose.Schema({
