@@ -8,10 +8,9 @@
  * Controller of the appApp
  */
 angular.module('appApp')
-  .controller('MainCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('MainCtrl', function ($scope, API) {
+  	API.list()
+  		.success(function(qcm){
+  			$scope.qcm=qcm;
+  		});
   });

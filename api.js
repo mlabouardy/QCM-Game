@@ -11,7 +11,7 @@ module.exports=function(app){
 		QCM.find(function(err,qcms){
 			if(err)
 				throw err;
-			console.log(qcms);
+			res.send(qcms);
 		});
 	});
 
@@ -22,6 +22,14 @@ module.exports=function(app){
 				throw err;
 			console.log("QCM saved !");
 			res.status(200).send();
+		});
+	});
+
+	app.get('/qcm/:id',function(req,res){
+		QCM.findOne({_id:req.params.id},function(err,qcm){
+			if(err)
+				throw err;
+			res.send(qcm);
 		});
 	});
 }

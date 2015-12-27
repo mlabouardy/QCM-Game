@@ -1,0 +1,24 @@
+<div class="row">
+	<div class="col-md-12">
+		<ol class="breadcrumb">
+		  <li><a href="#/">Home</a></li>
+		  <li class="active">{{qcm.name}}</li>
+		</ol>
+
+		<div class="panel panel-info">
+			<div class="panel-body">
+				<ul class="list-group">
+				  <li class="list-group-item" ng-repeat="question in qcm.questions">
+				    <div class="alert alert-success">{{question.question}}</div>
+				    <select ng-model="user.response" class="form-control">
+			          <option ng-repeat="choice in question.choices" value="{{choice.name}}">
+			            {{choice.name}}
+			          </option>
+			        </select>
+				  </li>
+				</ul>
+				<input type="submit" value="Answer" class="btn btn-success btn-block" ng-click="answer()"/>
+			</div>
+		</div>
+	</div>
+</div>
